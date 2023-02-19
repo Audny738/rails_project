@@ -13,7 +13,7 @@ class RoomsController < ApplicationController
     end
 
     def create
-        @room = Room.new
+        @room = Room.new(room_params)
 
         respond_to do |format|
             if @room.save
