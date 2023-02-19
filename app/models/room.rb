@@ -8,5 +8,5 @@ class Room < ApplicationRecord
             :image,
             presence: true
 
-  validates :lenght, :width, numericality: { only_float: true}
+  validates :length, :width, numericality: { only_float: true }
 end
