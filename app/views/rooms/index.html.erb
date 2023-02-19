@@ -1,0 +1,30 @@
+<main role="main">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1>Welcome!<h1>
+            <p class="lead text-muted">
+                In this page you can find all our romms available. If you're interested in one, just click on <strong>Separate</strong>!
+            </p>
+        </div>
+    </section>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <% @rooms.each do |room| %>
+                  <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm text-center">
+                        <%= image_tag room.image %>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <%= room.description.split(" ").first(15).join(" ") %>
+                            </p>
+                            <%= link_to 'Details', room_path(room), class: 'btn btn-warning' %>
+                            <a href="#" class="btn btn-primary ml-4">Separate</a>
+                        </div>
+                    </div>
+                  </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</main>
