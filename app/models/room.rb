@@ -1,4 +1,5 @@
 class Room < ApplicationRecord
+  mount_uploader :image, RoomUploader
   belongs_to :hotel
 
   validates :length, 
