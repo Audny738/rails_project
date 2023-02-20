@@ -5,9 +5,11 @@
         </div>
         <div class="col-md-5">
             <p><%= @room.description %></p>
-            <p><%= @room.length %></p>
-            <p><%= @room.width %></p>
-            <a href="#" class="btn btn-primary my-3">Separate</a>
+            <p>Length: <%= @room.length %></p>
+            <p>Width: <%= @room.width %></p>
+            <% if !@room.taken %>
+                <%= link_to 'Reserve', reserve_room_path(@room), class: 'my-3 btn btn-success' %>
+            <% end %>
         </div>
         <% if logged_in?(:site_admin)%>
             <div>

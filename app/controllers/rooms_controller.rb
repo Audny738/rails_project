@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
     access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
-    before_action :set_room, only: [:show, :edit, :destroy]
+    before_action :set_room, only: [:show, :edit, :destroy, :reserve]
     
     def index
         @rooms = Room.all
@@ -46,6 +46,11 @@ class RoomsController < ApplicationController
         respond_to do |format|
             format.html { redirect_to rooms_url, notice: 'Room deleted' }
         end
+    end
+
+    def reserve
+        @room.update(taken: true)
+        redirect_to rooms_url, notice: 'Habitación apartada'
     end
 
     private
